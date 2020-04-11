@@ -20,6 +20,7 @@ Brief Description of Goal of Code:
 This code should ask the user symptomatic questions to determine if one has COVID-19, a cold, the flu, or seasonal allergies. The final page should display the results in a digestible format.
 
 Known Issues:
+Originally the functions weren't running because of some errors such as not having closing brackets for functions, so these errors were fixed.
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
@@ -44,23 +45,28 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
         var allergy_count = 0;
         var cold_count = 0;
 	var covid_count = 0;
-	var flu_count = 0
+	var flu_count = 0;
 
 	
         function allergyAdd(){
             allergy_count = allergy_count + 1;
+		alert(allergy_count)
         }
 
         function coldAdd(){
             cold_count = cold_count + 1;
+		alert(cold_count)
         }
 	
 	function covidAdd(){
 	    covid_count = covid_count + 1;
+		alert(covid_count)
 	}
 	
 	function fluAdd(){
 	    flu_count = flu_count + 1;
+		alert(flu_count)
+	}
 	
 	// 7) Next I had to write a function to calculate the probabilities of either cold or allergy. The math functions below give the respective allergy and cold percentages. The last variable should allow me to display the results on the results page.
 	function probabilities(){
