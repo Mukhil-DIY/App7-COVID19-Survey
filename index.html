@@ -17,17 +17,15 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-The code should create an app which cycles through 4 different yes or no questions pertaining to the symptoms of colds and allergies, providing a result based on answers to these questions. This assignment will teach me how to implement html, javascript, and css commands. I will also learn how to create pages and how to move from one to the next. Most complex will be creating a function to calculate and display the results of the fake diagnosis.
- 
+This code should ask the user symptomatic questions to determine if one has COVID-19, a cold, the flu, or seasonal allergies. The final page should display the results in a digestible format.
+
 Known Issues:
-Had trouble with the results because it was replacing the wrong portion of the code. After changing the name of the last page from results to end, the issue was resolved.
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
 	
    <head> 
-	<!-- Swapping Hello world with Cold or Allergy? should change the words on the tab. -->
-      <title>Cold or Allergy?</title>  
+      <title>COVID-19 Diagnostic Survey</title>  
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="apple-mobile-web-app-capable" content="yes">
       <link rel="stylesheet" href="w3.css">
@@ -45,19 +43,25 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
         var allergy_count = 0;
         var cold_count = 0;
+	var covid_count = 0;
+	var flu_count = 0
 
-	// The following two functions add a count to either the allergy or cold count, depending on the answer to a question. A tally of the count shows up as an alert after clicking each answer, yes or no.
+	
         function allergyAdd(){
             allergy_count = allergy_count + 1;
-		alert(allergy_count);
-
         }
 
         function coldAdd(){
             cold_count = cold_count + 1;
-		alert(cold_count);
-		//I added the alert for this one as there was no code for it before.
         }
+	
+	function covidAdd(){
+	    covid_count = covid_count + 1;
+	}
+	
+	function fluAdd(){
+	    flu_count = flu_count + 1;
+	
 	// 7) Next I had to write a function to calculate the probabilities of either cold or allergy. The math functions below give the respective allergy and cold percentages. The last variable should allow me to display the results on the results page.
 	function probabilities(){
 		var allergyPercent  = (allergy_count / 4) * 100;
@@ -172,8 +176,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     	</div>
 </div>
 	
-	<!-- 6) Now, I will create a temporary dead results page to test if all the code before works fine. After I check this off, I will move on truly coding the results page. -->
-	<!-- 8) After testing was successful, I created an intermediate page called click so that I could use a button on that page to run the probabilities function that I created. -->
+
 <div class="page" id="click">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Results</h1>
