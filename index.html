@@ -66,19 +66,35 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 
 	function probabilities(){
+		
 		var allergyPercent  = (allergy_count / 11) * 100;
 		var coldPercent = (cold_count / 11) * 100;
 		var covidPercent = (covid_count / 11) * 100;
 		var fluPercent = (flu_count / 11) * 100;
+		
 		var allergyRounded = Math.round(allergyPercent)
 		var coldRounded = Math.round(coldPercent)
 		var covidRounded = Math.round(covidPercent)
 		var fluRounded = Math.round(fluPercent)
+		
 		var resultText = document.getElementById("resultsDisplay");
 		resultText.innerHTML = "Your answers were:<br>" + covidRounded + "% in line with COVID-19 symptoms,<br>" + coldRounded + "% in line with cold symptoms,<br>" + fluRounded + "% in line with flu symptoms, <br>" + allergyRounded + "% in line with allergy symptoms."
+		
 		var a = document.getElementById("htmlCanvas");
 	 	var atx = a.getContext("2d");
   	 	atx.fillRect(0, 60, (covidRounded * 5), 40);
+		
+		var b = document.getElementById("htmlCanvas");
+	 	var btx = b.getContext("2d");
+  	 	btx.fillRect(0, 140, (coldRounded * 5), 40);
+		
+		var c = document.getElementById("htmlCanvas");
+	 	var ctx = c.getContext("2d");
+  	 	ctx.fillRect(0, 220, (fluRounded * 5), 40);
+		
+		var d = document.getElementById("htmlCanvas");
+	 	var dtx = d.getContext("2d");
+  	 	dtx.fillRect(0, 340, (allergyRounded * 5), 40);
 	}
 	
   </script>
