@@ -66,7 +66,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	function probabilities(){
 		var allergyPercent  = (allergy_count / 4) * 100;
 		var coldPercent = (cold_count / 4) * 100;
-		var resultText = document.getElementById("results");
+		var resultText = document.getElementById("resultsDisplay");
 		resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "% <br> Probability it is a cold = " + coldPercent + "%";
 		// 11) The line above was moved from the page to here in javascript so that it would actually be executed instead of simply displayed. Also by adding percent signs "%" The display looks better.
 	}
@@ -273,7 +273,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	<div id="content" class="w3-container">
 	<!-- 10) I originally misunderstood this prompt and put it on the page instead of in the javascript. In this edit, I moved it to its proper place so that the results display would work properly. -->
-	<p id="results">probabilities</p>
+	<p id="resultsDisplay">probabilities</p>
 		<!--, after trouble shooting, I figured out how to use the innerHTML to replace "probabilities" in the display. It was beacuse the page name was also results, so I changed it to end instead.-->
 	</div>
 </div>	
