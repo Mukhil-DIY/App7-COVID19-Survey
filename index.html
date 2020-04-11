@@ -109,12 +109,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 <!-- This establishes the header -->
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>Cold or Allergies?</h1>
+	<h1>Are you at risk for COVID-19?</h1>
 </div>
 
 <!-- The first command creates the introduction question while the second is CSS3 creating a button. The last two are disclaimers for users of the app in text --> 
 <div id="content" class="w3-container">
-	<p>Are you feeling like you might have a cold but wonder if it is allergies. Answer a few short questions to find out!</p>
+	<p>With the recent prevelance of COVID-19 and its alarming rate of infection, many individuals are looking to find out if they themselves carry the disease. However, with symptoms similar to other respiratory illnesses, doing so by oneself is rather difficult. However, this app will give you a rough indication of whether to be concerned or not. Click the button below to begin!</p>
 	
 	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
 	
@@ -127,55 +127,132 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 1</h1>
 	</div>
-	<!-- 2) Now I will try adding the first yes button to the first question page as well as text for the first question. I will not be inputting the javascript function yet. -->
-    	<!-- 3) Next I will add the no button and the javascript function for the allergy or cold calculation. With this the first question page should be complete. -->
 	<div id="content" class="w3-container">
-		<p>Are your eyes watery or itchy?</p>
-		<!-- The following two commands are for buttons that will run the javascript functions and move on to the next page -->
-		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes </a>
-        	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> No </a>
+		<p>How long have you had disease symptoms?</p>
+		<a href="#two"  onclick="covidAdd();" class="w3-btn w3-black"> 7-25 Days </a>
+        	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Less than 14 Days </a>
+		<a href="#two"  onclick="fluAdd();" class="w3-btn w3-black"> 7-14 Days </a>
+		<a href="#two"  onclick="allergyAdd();" class="w3-btn w3-black"> Several Weeks </a>
     	</div>
 </div>
+	
 <!-- This is page 2, the second page with a diagnostic question, and the h1 command puts question 2 in the header.-->
 <div class="page" id="two">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
-	<!-- 4) Here I will do exactly what I did for question 1 only for question 2, remembering to switch the yes and no values for the javascript program this time. I will also code the page to move onto page 3 and not page 2. -->
+	
 	<div id="content" class="w3-container">
-		<p>Do you have a fever?</p>
-		<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"> Yes </a>
-		<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black"> No </a>
+		<p>How common and dry is your cough?</p>
+		<a href="#three"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Common and Dry </a>
+		<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"> Common and Mild </a>
+		<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black"> Rare and Dry </a>	
 	</div>
 </div>	
 
-	<!-- 5) Next I will add pages 3 and 4. Page 3 will have the same button commands as page 2 and page 4 the same as 1. I will be inputting each question's text as well. Finally, I will chnge the page ids to three and four. -->
-
-	<!-- This creates the third page containing the thrid question. -->
 <div class="page" id="three">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 3</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>Do you have a sore throat?</p>
-		<a href="#four"  onclick="coldAdd();" class="w3-btn w3-black"> Yes </a>
-		<a href="#four"  onclick="allergyAdd();" class="w3-btn w3-black"> No </a>
+		<p>Do you have shortness of breath (if you have no asthma)?</p>
+		<a href="#four"  onclick="covidAdd();" class="w3-btn w3-black"> Sometimes </a>
+		<a href="#four"  onclick="coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> No </a>
 	</div>
 </div>
 
-	<!-- This creates the fourth and final question page -->
 <div class="page" id="four">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 4</h1>
 	</div>
-	
 	<div id="content" class="w3-container">
-		<p>Are your symptoms seasonal or chronic?</p>
-		<a href="#click"  onclick="allergyAdd();" class="w3-btn w3-black"> Yes </a>
-        	<a href="#click"  onclick="coldAdd();" class="w3-btn w3-black"> No </a>
+		<p>Are you sneezing?</p>
+		<a href="#five"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes </a>
+        	<a href="#five"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> No </a>
+    	</div>
+</div>
+
+<div class="page" id="five">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 5</h1>
+	</div>
+	<div id="content" class="w3-container">
+		<p>How commonly is your nose runny or stuffy?</p>
+		<a href="#six"  onclick="covidAdd();" class="w3-btn w3-black"> Rare </a>
+        	<a href="#six"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Common </a>
+		<a href="#six"  onclick="fluAdd();" class="w3-btn w3-black"> Sometimes </a>
     	</div>
 </div>
 	
+<div class="page" id="six">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 6</h1>
+	</div>
+	<div id="content" class="w3-container">
+		<p>How commonly do you have a sore throat?</p>
+		<a href="#seven"  onclick="coldAdd();" class="w3-btn w3-black"> Common </a>
+        	<a href="#seven"  onclick="covidAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> Sometimes </a>
+    	</div>
+</div>
+	
+<div class="page" id="seven">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 7</h1>
+	</div>
+	<div id="content" class="w3-container">
+		<p>Do you have a fever and if so, how commonly/how long?</p>
+		<a href="#eight"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Common </a>
+        	<a href="#eight"  onclick="coldAdd();" class="w3-btn w3-black"> Short Fever Period </a>
+		<a href="#eight"  onclick="allergyAdd();" class="w3-btn w3-black"> No </a>
+    	</div>
+</div>
+	
+<div class="page" id="eight">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 8</h1>
+	</div>	
+	<div id="content" class="w3-container">
+		<p>How commonly do you feel tired and weak?</p>
+		<a href="#nine"  onclick="fluAdd();" class="w3-btn w3-black"> Common </a>
+        	<a href="#nine"  onclick="covidAdd(); coldAdd(); allergyAdd();" class="w3-btn w3-black"> Sometimes </a>
+    	</div>
+</div>
+	
+<div class="page" id="nine">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 9</h1>
+	</div>
+	<div id="content" class="w3-container">
+		<p>How commonly are you experiencing headaches?</p>
+		<a href="#ten"  onclick="fluAdd();" class="w3-btn w3-black"> Common </a>
+        	<a href="#ten"  onclick="covidAdd(); allergyAdd();" class="w3-btn w3-black"> Sometimes </a>
+		<a href="#ten"  onclick="coldAdd();" class="w3-btn w3-black"> Rare </a>
+    	</div>
+</div>
+	
+<div class="page" id="ten">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 10</h1>
+	</div>
+	<div id="content" class="w3-container">
+		<p>How common are body aches and pains?</p>
+		<a href="#eleven"  onclick="coldAdd(); fluAdd();" class="w3-btn w3-black"> Common </a>
+        	<a href="#eleven"  onclick="covidAdd();" class="w3-btn w3-black"> Sometimes </a>
+		<a href="#eleven"  onclick="allergyAdd();" class="w3-btn w3-black"> No Aches or Pains </a>
+    	</div>
+</div>
+	
+<div class="page" id="eleven">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 11</h1>
+	</div>
+	<div id="content" class="w3-container">
+		<p>Do you have diarrhea?</p>
+		<a href="#click"  onclick="covidAdd();" class="w3-btn w3-black"> Sometimes </a>
+		<a href="#click"  onclick="fluAdd();" class="w3-btn w3-black"> Sometimes (children) </a>
+        	<a href="#click"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> No </a>
+    	</div>
+</div>
 
 <div class="page" id="click">
 	<div id="header" class="w3-container w3-flat-carrot">
