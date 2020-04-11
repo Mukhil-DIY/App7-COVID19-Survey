@@ -275,7 +275,13 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<div id="content" class="w3-container">
 	<!-- 10) I originally misunderstood this prompt and put it on the page instead of in the javascript. In this edit, I moved it to its proper place so that the results display would work properly. -->
 	<p id="resultsDisplay">probabilities</p>
-		<!--, after trouble shooting, I figured out how to use the innerHTML to replace "probabilities" in the display. It was beacuse the page name was also results, so I changed it to end instead.-->
+	
+		<p>Legend:</p>
+		
+		<p>Black = COVID-19     Blue = Cold     Red = Flu     Green = Allergies</p>
+		
+		<canvas id="htmlCanvas" width="500" height="400" style="border:1px solid #000000;"></canvas>
+		
 	</div>
 </div>	
 	
