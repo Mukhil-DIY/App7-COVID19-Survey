@@ -86,15 +86,18 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		
 		var b = document.getElementById("htmlCanvas");
 	 	var btx = b.getContext("2d");
+		btx.fillStyle = "blue";
   	 	btx.fillRect(0, 140, (coldRounded * 5), 40);
 		
 		var c = document.getElementById("htmlCanvas");
 	 	var ctx = c.getContext("2d");
+		ctx.fillStyle = "red";
   	 	ctx.fillRect(0, 220, (fluRounded * 5), 40);
 		
 		var d = document.getElementById("htmlCanvas");
 	 	var dtx = d.getContext("2d");
-  	 	dtx.fillRect(0, 340, (allergyRounded * 5), 40);
+		dtx.fillStyle = "green";
+  	 	dtx.fillRect(0, 300, (allergyRounded * 5), 40);
 	}
 	
   </script>
