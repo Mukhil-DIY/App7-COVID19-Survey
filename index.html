@@ -36,74 +36,73 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 <script>
 	
-	//This shows when the page was last updated
-	var docMod = document.lastModified; // loads last modified time stamp into docMod variable
-	alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
-	console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp.
-	
-	
+	//these set the variables for the questions to add to
         var allergy_count = 0;
         var cold_count = 0;
 	var covid_count = 0;
 	var flu_count = 0;
 
-	
+	//this adds to the allergy count
         function allergyAdd(){
             allergy_count = allergy_count + 1;
         }
-
+	//this adds to the cold count
         function coldAdd(){
             cold_count = cold_count + 1;
         }
-	
+	//this adds to the covid count
 	function covidAdd(){
 	    covid_count = covid_count + 1;
 	}
-	
+	//this adds to the flu count
 	function fluAdd(){
 	    flu_count = flu_count + 1;
 	}
 	
-
+	//this runs all the results displays
 	function probabilities(){
 		
-		var allergyPercent  = (allergy_count / 11) * 100;
-		var coldPercent = (cold_count / 11) * 100;
-		var covidPercent = (covid_count / 11) * 100;
-		var fluPercent = (flu_count / 11) * 100;
+		var allergyPercent  = (allergy_count / 11) * 100; //calculates percent alignment with sympotms for allergies
+		var coldPercent = (cold_count / 11) * 100; //calculates percent alignment with sympotms for cold
+		var covidPercent = (covid_count / 11) * 100; //calculates percent alignment with sympotms for covid
+		var fluPercent = (flu_count / 11) * 100; //calculates percent alignment with sympotms for flu
 		
+		//rounds above values to nearest percent
 		var allergyRounded = Math.round(allergyPercent)
 		var coldRounded = Math.round(coldPercent)
 		var covidRounded = Math.round(covidPercent)
 		var fluRounded = Math.round(fluPercent)
 		
+		//Displays the text version of the symptom's percent alignment with each disease
 		var resultText = document.getElementById("resultsDisplay");
 		resultText.innerHTML = "Your answers were:<br>" + covidRounded + "% in line with COVID-19 symptoms,<br>" + coldRounded + "% in line with cold symptoms,<br>" + fluRounded + "% in line with flu symptoms, <br>" + allergyRounded + "% in line with allergy symptoms."
 		
-		var a = document.getElementById("htmlCanvas");
-	 	var atx = a.getContext("2d");
-  	 	atx.fillRect(0, 60, (covidRounded * 5), 40);
+		var a = document.getElementById("htmlCanvas"); //draws the canvas
+	 	var atx = a.getContext("2d"); //sets the 2d parameter
+  	 	atx.fillRect(0, 60, (covidRounded * 5), 40); //creates the bar which shows percent alignment with covid
 		
-		var b = document.getElementById("htmlCanvas");
-	 	var btx = b.getContext("2d");
-		btx.fillStyle = "blue";
-  	 	btx.fillRect(0, 140, (coldRounded * 5), 40);
+		var b = document.getElementById("htmlCanvas"); //draws the canvas
+	 	var btx = b.getContext("2d"); //sets the 2d parameter
+		btx.fillStyle = "blue"; //changes bar color from black to blue
+  	 	btx.fillRect(0, 140, (coldRounded * 5), 40); //creates the bar which shows percent alignment with cold
 		
-		var c = document.getElementById("htmlCanvas");
-	 	var ctx = c.getContext("2d");
-		ctx.fillStyle = "red";
-  	 	ctx.fillRect(0, 220, (fluRounded * 5), 40);
+		var c = document.getElementById("htmlCanvas"); //draws the canvas
+	 	var ctx = c.getContext("2d"); //sets the 2d parameter
+		ctx.fillStyle = "red"; //changes bar color from black to red
+  	 	ctx.fillRect(0, 220, (fluRounded * 5), 40); //creates the bar which shows percent alignment with flu
 		
-		var d = document.getElementById("htmlCanvas");
-	 	var dtx = d.getContext("2d");
-		dtx.fillStyle = "green";
-  	 	dtx.fillRect(0, 300, (allergyRounded * 5), 40);
+		var d = document.getElementById("htmlCanvas"); //draws the canvas
+	 	var dtx = d.getContext("2d"); //sets the 2d parameter
+		dtx.fillStyle = "green"; //changes bar color from black to green
+  	 	dtx.fillRect(0, 300, (allergyRounded * 5), 40); //creates the bar which shows percent alignment with allergy
+		
+		//the above fill rect functions should represent the percent alignment with each disease as a proportion of the canvas's width, ie at 100% alignment the bar will span the entire canvas's width. The colors are indicated by the legend above the canvas
 	}
 	
   </script>
 
 
-
+<!-- this formats the page -->
 <style>	
 .body {
      margin: 0em;
@@ -144,13 +143,14 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
-<!-- This code creates the frist page with the first diagnostic question. -->
+<!-- This code creates the first page with the first diagnostic question. -->
 <div class="page" id="one">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 1</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>How long have you had disease symptoms?</p>
+		<p>How long have you had disease symptoms?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#two"  onclick="covidAdd();" class="w3-btn w3-black"> 7-25 Days </a>
         	<a href="#two"  onclick="coldAdd();" class="w3-btn w3-black"> Less than 14 Days </a>
 		<a href="#two"  onclick="fluAdd();" class="w3-btn w3-black"> 7-14 Days </a>
@@ -158,118 +158,137 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     	</div>
 </div>
 	
-<!-- This is page 2, the second page with a diagnostic question, and the h1 command puts question 2 in the header.-->
+<!-- This is page 2, the second page with a diagnostic question -->
 <div class="page" id="two">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 2</h1>
 	</div>
 	
 	<div id="content" class="w3-container">
-		<p>How common and dry is your cough?</p>
+		<p>How common and dry is your cough?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#three"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Common and Dry </a>
 		<a href="#three"  onclick="coldAdd();" class="w3-btn w3-black"> Common and Mild </a>
 		<a href="#three"  onclick="allergyAdd();" class="w3-btn w3-black"> Rare and Dry </a>	
 	</div>
 </div>	
 
+<!-- This code creates the third question page -->
 <div class="page" id="three">
 	<div class="w3-container w3-flat-carrot">
 		<h1>Question 3</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>Do you have shortness of breath (if you have no asthma)?</p>
+		<p>Do you have shortness of breath (if you have no asthma)?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#four"  onclick="covidAdd();" class="w3-btn w3-black"> Sometimes </a>
 		<a href="#four"  onclick="coldAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> No </a>
 	</div>
 </div>
 
+<!-- This code creates the fourth question page -->
 <div class="page" id="four">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 4</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>Are you sneezing?</p>
+		<p>Are you sneezing?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#five"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Yes </a>
         	<a href="#five"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> No </a>
     	</div>
 </div>
 
+<!-- This code creates the fifth question page -->
 <div class="page" id="five">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 5</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>How commonly is your nose runny or stuffy?</p>
+		<p>How commonly is your nose runny or stuffy?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#six"  onclick="covidAdd();" class="w3-btn w3-black"> Rare </a>
         	<a href="#six"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> Common </a>
 		<a href="#six"  onclick="fluAdd();" class="w3-btn w3-black"> Sometimes </a>
     	</div>
 </div>
-	
+
+<!-- This code creates the sixth question page -->
 <div class="page" id="six">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 6</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>How commonly do you have a sore throat?</p>
+		<p>How commonly do you have a sore throat?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#seven"  onclick="coldAdd();" class="w3-btn w3-black"> Common </a>
         	<a href="#seven"  onclick="covidAdd(); fluAdd(); allergyAdd();" class="w3-btn w3-black"> Sometimes </a>
     	</div>
 </div>
-	
+
+<!-- This code creates the seventh question page -->
 <div class="page" id="seven">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 7</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>Do you have a fever and if so, how commonly/how long?</p>
+		<p>Do you have a fever and if so, how commonly/how long?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#eight"  onclick="covidAdd(); fluAdd();" class="w3-btn w3-black"> Common </a>
         	<a href="#eight"  onclick="coldAdd();" class="w3-btn w3-black"> Short Fever Period </a>
 		<a href="#eight"  onclick="allergyAdd();" class="w3-btn w3-black"> No </a>
     	</div>
 </div>
-	
+
+<!-- This code creates the eighth question page -->
 <div class="page" id="eight">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 8</h1>
 	</div>	
 	<div id="content" class="w3-container">
-		<p>How commonly do you feel tired and weak?</p>
+		<p>How commonly do you feel tired and weak?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#nine"  onclick="fluAdd();" class="w3-btn w3-black"> Common </a>
         	<a href="#nine"  onclick="covidAdd(); coldAdd(); allergyAdd();" class="w3-btn w3-black"> Sometimes </a>
     	</div>
 </div>
-	
+
+<!-- This code creates the ninth question page -->
 <div class="page" id="nine">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 9</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>How commonly are you experiencing headaches?</p>
+		<p>How commonly are you experiencing headaches?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#ten"  onclick="fluAdd();" class="w3-btn w3-black"> Common </a>
         	<a href="#ten"  onclick="covidAdd(); allergyAdd();" class="w3-btn w3-black"> Sometimes </a>
 		<a href="#ten"  onclick="coldAdd();" class="w3-btn w3-black"> Rare </a>
     	</div>
 </div>
-	
+
+<!-- This code creates the tenth question page -->
 <div class="page" id="ten">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 10</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>How common are body aches and pains?</p>
+		<p>How common are body aches and pains?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#eleven"  onclick="coldAdd(); fluAdd();" class="w3-btn w3-black"> Common </a>
         	<a href="#eleven"  onclick="covidAdd();" class="w3-btn w3-black"> Sometimes </a>
 		<a href="#eleven"  onclick="allergyAdd();" class="w3-btn w3-black"> No Aches or Pains </a>
     	</div>
 </div>
-	
+
+<!-- This code creates the eleventh question page -->
 <div class="page" id="eleven">
 	<div id="header" class="w3-container w3-flat-carrot">
 		<h1>Question 11</h1>
 	</div>
 	<div id="content" class="w3-container">
-		<p>Do you have diarrhea?</p>
+		<p>Do you have diarrhea?</p> <!-- this is the question -->
+		<!-- below are all the buttons, with each adding to the respective disease the symptom corresponds to -->
 		<a href="#click"  onclick="covidAdd();" class="w3-btn w3-black"> Sometimes </a>
 		<a href="#click"  onclick="fluAdd();" class="w3-btn w3-black"> Sometimes (children) </a>
         	<a href="#click"  onclick="coldAdd(); allergyAdd();" class="w3-btn w3-black"> No </a>
@@ -290,23 +309,22 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<!-- 9) This last page is where the results will be displayed. The innerHTML line takes care of the display of the probabilities.-->
 <div class="page" id="end">
 	<div id="header" class="w3-container w3-flat-carrot">
-		<h1>Results</h1>
+		<h1>Results</h1> <!-- this is the header text -->
 	</div>
 	
 	<div id="content" class="w3-container">
-	<!-- 10) I originally misunderstood this prompt and put it on the page instead of in the javascript. In this edit, I moved it to its proper place so that the results display would work properly. -->
-	<p id="resultsDisplay">probabilities</p>
+	<p id="resultsDisplay">probabilities</p> <!-- This is replaced by the text from the probabilities function -->
 		
 		<p>Legend:</p>
 		
-		<p>| Black = COVID-19 | Blue = Cold | Red = Flu | Green = Allergies |</p>
+		<p>| Black = COVID-19 | Blue = Cold | Red = Flu | Green = Allergies |</p> <!-- This is the legend for the graph -->
 		
-		<canvas id="htmlCanvas" width="500" height="400" style="border:1px solid #000000;"></canvas>
+		<canvas id="htmlCanvas" width="500" height="400" style="border:1px solid #000000;"></canvas> <!-- This creates the canvas for the graph -->
 		
 	</div>
 </div>	
 	
-<footer class="w3-bottom w3-container w3-flat-carrot">
+<footer class="w3-bottom w3-container w3-flat-carrot"> <!-- This creates the footer -->
 	<p>DIY!</p>
 </footer>
 
