@@ -70,10 +70,12 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	
 	// 7) Next I had to write a function to calculate the probabilities of either cold or allergy. The math functions below give the respective allergy and cold percentages. The last variable should allow me to display the results on the results page.
 	function probabilities(){
-		var allergyPercent  = (allergy_count / 4) * 100;
-		var coldPercent = (cold_count / 4) * 100;
+		var allergyPercent  = (allergy_count / 11) * 100;
+		var coldPercent = (cold_count / 11) * 100;
+		var covidPercent = (covid_count / 11) * 100;
+		var fluPercent = (flu_count / 11) * 100;
 		var resultText = document.getElementById("resultsDisplay");
-		resultText.innerHTML = "Probability it is allergies = " + allergyPercent + "% <br> Probability it is a cold = " + coldPercent + "%";
+		resultText.innerHTML = "Your answeres were<br>" + covidPercent + "% in line with COVID-19 symptoms,<br>" + coldPercent + "% in line with cold symptoms,<br>" + fluPercent + "% in line with flu symptoms, <br> and " + allergyPercent + "% in line with allergy symptoms."
 		// 11) The line above was moved from the page to here in javascript so that it would actually be executed instead of simply displayed. Also by adding percent signs "%" The display looks better.
 	}
 	
