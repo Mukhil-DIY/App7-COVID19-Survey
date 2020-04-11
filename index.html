@@ -75,7 +75,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		var covidPercent = (covid_count / 11) * 100;
 		var fluPercent = (flu_count / 11) * 100;
 		var resultText = document.getElementById("resultsDisplay");
-		resultText.innerHTML = "Your answers were:<br>" + covidPercent + "% in line with COVID-19 symptoms,<br>" + coldPercent + "% in line with cold symptoms,<br>" + fluPercent + "% in line with flu symptoms, <br> and " + allergyPercent + "% in line with allergy symptoms."
+		resultText.innerHTML = "Your answers were:<br>" + math.round(covidPercent) + "% in line with COVID-19 symptoms,<br>" + math.round(coldPercent) + "% in line with cold symptoms,<br>" + math.round(fluPercent) + "% in line with flu symptoms, <br> and " + math.round(allergyPercent) + "% in line with allergy symptoms."
 		// 11) The line above was moved from the page to here in javascript so that it would actually be executed instead of simply displayed. Also by adding percent signs "%" The display looks better.
 	}
 	
