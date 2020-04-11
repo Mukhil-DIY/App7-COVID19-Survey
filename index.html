@@ -76,13 +76,9 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 		var fluRounded = Math.round(fluPercent)
 		var resultText = document.getElementById("resultsDisplay");
 		resultText.innerHTML = "Your answers were:<br>" + covidRounded + "% in line with COVID-19 symptoms,<br>" + coldRounded + "% in line with cold symptoms,<br>" + fluRounded + "% in line with flu symptoms, <br>" + allergyRounded + "% in line with allergy symptoms."
-		// 11) The line above was moved from the page to here in javascript so that it would actually be executed instead of simply displayed. Also by adding percent signs "%" The display looks better.
-	}
-	
-	function addBars(){
 		var a = document.getElementById("htmlCanvas");
-		var atx = a.getContext("2d");
-		atx.fillRect(0, 60, allergyRounded, 40)
+	 	var atx = a.getContext("2d");
+  	 	atx.fillRect(50, 25, covidRounded, 100);
 	}
 	
   </script>
@@ -269,7 +265,7 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 	<!-- This button should run the final program I added which will calculate results and display them on the next page. -->
 	<div id="content" class="w3-container">
 		<p>Click the button below for your results.</p>
-		<a href="#end" onclick="probabilities(); addBars();" class="w3-btn w3-grey w3-round"> Results </a>
+		<a href="#end" onclick="probabilities();" class="w3-btn w3-grey w3-round"> Results </a>
     	</div>
 </div>
 	<!-- 9) This last page is where the results will be displayed. The innerHTML line takes care of the display of the probabilities.-->
